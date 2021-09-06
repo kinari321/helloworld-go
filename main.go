@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
 func handler(writer http.ResponseWriter, request *http.Request) {
@@ -10,6 +11,8 @@ func handler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func main() {
+	key := ":" + os.Getenv("LOCALHELLO")
+	fmt.Printf("type: %T, key:%v", key, key)
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(key, nil)
 }
