@@ -20,7 +20,6 @@ func main() {
 		log.Println("Error loading .env file")
 	}
 	userName := os.Getenv("USER_NAME")
-	password := os.Getenv("PASSWORD")
 
 	fmt.Printf("type: %T, key: %v\n", key, key)
 	fmt.Printf("type: %T, user_name: %v\n", userName, userName)
