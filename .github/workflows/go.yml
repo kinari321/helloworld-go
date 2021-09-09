@@ -25,7 +25,6 @@ jobs:
       run: go test -v ./...
 
     - name: Create dot env file
-    - shell: bash
       run: |
         touch .env
         echo "HOGE=${{ secrets.HOGE }}" >> .env
