@@ -23,7 +23,7 @@ func main() {
 
 	fmt.Printf("type: %T, key: %v\n", key, key)
 	fmt.Printf("type: %T, user_name: %v\n", userName, userName)
-	fmt.Printf("type: %T, pass: %v\n", password, password)
+	// fmt.Printf("type: %T, pass: %v\n", password, password)
 
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(key, nil)
