@@ -50,6 +50,6 @@ jobs:
             git pull origin main &&
             pwd &&
             kill -9 $(lsof -t -i:8080) &&
-            go run ./main.go &
+            go run ./main.go
           '
           echo "ssh 終了！"
