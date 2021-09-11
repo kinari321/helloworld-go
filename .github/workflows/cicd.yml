@@ -29,7 +29,7 @@ jobs:
 
   deploy:
     # if: github.ref == 'refs/heads/main'
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
@@ -41,8 +41,8 @@ jobs:
           HOST_NAME: ${{ secrets.HOST_NAME }}
           # AWS_DEFAULT_REGION: ap-northeast-1
         run: |
-          ls
+          echo "プライベートキー 前"
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ls
+          echo "プライベートキー 後！ssh 前"
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'ssh -T github'
-          ls
+          echo "ssh 後！"
