@@ -49,7 +49,6 @@ jobs:
             cd go/src/helloworld-go &&
             git pull origin main &&
             pwd &&
-            sh ../../../kill.sh &&
             go run ./main.go
           '
           echo "ssh 終了！"
