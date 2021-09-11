@@ -48,6 +48,7 @@ jobs:
             echo "ssh接続できてます！" &&
             cd /home/ubuntu/go/src/helloworld-go &&
             git pull origin main &&
-            go run main.go
+            pwd &&
+            go run ./main.go
           '
           echo "ssh 終了！"
