@@ -46,10 +46,11 @@ jobs:
           echo -e "プライベートキー 後！\n ssh開始"
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} '
             echo "ssh接続できてます！" &&
-            cd /home/${USER_NAME}/go/src/helloworld-go &&
+            cd /home/"$USER_NAME"/go/src/helloworld-go &&
             git pull origin main &&
             pwd &&
-            sh /home/${USER_NAME}/kill.sh &&
+            sh /home/"$USER_NAME"/kill.sh &&
+            echo "USER_NAME: ${USER_NAME}, ${ USER_NAME }, '"$USER_NAME"' &&
             go run ./main.go
           '
           echo "ssh 終了！"
