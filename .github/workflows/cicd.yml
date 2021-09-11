@@ -41,8 +41,8 @@ jobs:
           HOST_NAME: ${{ secrets.HOST_NAME }}
           # AWS_DEFAULT_REGION: ap-northeast-1
         run: |
-          ls -la
+          ls
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ls -la
+          ls
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'ssh -T github'
-          ls -la
+          ls
