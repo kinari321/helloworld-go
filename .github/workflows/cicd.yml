@@ -31,7 +31,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     # needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 1
     steps:
       - uses: actions/checkout@v2
       - name: Deploy
@@ -42,7 +42,4 @@ jobs:
           # AWS_DEFAULT_REGION: ap-northeast-1
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          echo "$PRIVATE_KEY"
-          echo "$USER_NAME"
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'echo "hello from EC2"'
-          echo "$HOST_NAME"
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'ssh -T github'
