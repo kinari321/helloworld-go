@@ -49,6 +49,7 @@ jobs:
             cd /home/ubuntu/go/src/helloworld-go &&
             git pull origin main &&
             pwd &&
-            go run ./main.go
+            kill -9 $(lsof -t -i:8080) &&
+            go run ./main.go &
           '
           echo "ssh 終了！"
